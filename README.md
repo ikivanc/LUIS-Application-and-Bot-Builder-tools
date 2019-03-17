@@ -106,6 +106,15 @@ After changes convert .lu file to json file.
 ludown parse ToLuis --in supportservicetext.lu -n supportserviceupdated -i 0.1
 ```
 
+
+Rename existing LUIS app
+
+```bash
+luis rename version --versionId 0.1 --newVersionId 0.1-bak --appId <string>
+```
+
+
+
 Import LUIS json file.
 ```bash
 luis import application --in supportserviceupdated.json
@@ -128,6 +137,14 @@ output:
 ```
 
 Your modified LUIS project is updated.
+
+
+Delete your old version from your LUIS app
+
+```bash
+luis delete version --versionId 0.1-bak --force --appId <string>
+```
+
 
 ## Train and Publish
 You can easily train + publish your model by selecting Train  in the web portal. If you’d like to instead use the LUIS API tool to train or publish from the command line, you’ll need to grab the App ID from the web portal.
